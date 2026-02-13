@@ -376,17 +376,37 @@ a {
 
 .booking-form .form-control,
 .booking-form .form-select {
-  border: 2px solid #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
   font-size: 0.95rem;
+  color: var(--color-white);
   transition: var(--transition-base);
+  backdrop-filter: blur(5px);
+}
+
+.booking-form .form-select option {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Semi-transparent dark background */
+  color: var(--color-white);
+}
+
+/* Fix for date input icon color */
+.booking-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(100%);
+  cursor: pointer;
+}
+
+.booking-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .booking-form .form-control:focus,
 .booking-form .form-select:focus {
   border-color: var(--color-primary-orange);
   box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .btn-search-tours {
@@ -1895,8 +1915,8 @@ a {
 }
 
 .floating-btn {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   background: linear-gradient(135deg,
       var(--color-primary-orange),
       var(--color-temple-gold));
