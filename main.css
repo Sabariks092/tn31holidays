@@ -1453,15 +1453,22 @@ a {
   opacity: 1 !important;
   transition: all 0.3s ease;
   border: none;
+  z-index: 1050 !important;
+  pointer-events: auto !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .custom-nav i {
   font-size: 1.7rem;
   color: var(--color-primary-orange);
+  transition: all 0.3s ease;
 }
 
 .custom-nav:hover {
-  background: var(--gradient-primary);
+  background: var(--color-primary-orange);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
 }
 
 .custom-nav:hover i {
@@ -1469,39 +1476,40 @@ a {
 }
 
 .carousel-control-prev {
-  left: -30px;
+  left: 10px;
 }
 
 .carousel-control-next {
-  right: -30px;
+  right: 10px;
+}
+
+@media (max-width: 1200px) {
+  .carousel-control-prev {
+    left: 0;
+  }
+
+  .carousel-control-next {
+    right: 0;
+  }
 }
 
 /* Responsive fix */
 @media (max-width: 768px) {
   .custom-nav {
-    width: 35px;
-    height: 35px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 1 !important;
-    transition: all 0.3s ease;
-    border: none;
+    width: 40px;
+    height: 40px;
   }
 
   .custom-nav i {
-    font-size: 1rem;
-    color: var(--color-primary-orange);
+    font-size: 1.2rem;
   }
 
   .carousel-control-prev {
-    left: 5px;
+    left: -5px;
   }
 
   .carousel-control-next {
-    right: 5px;
+    right: -5px;
   }
 }
 
@@ -1947,6 +1955,17 @@ a {
 .floating-btn.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+#scrollTopBtn {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* WhatsApp-specific floating button */

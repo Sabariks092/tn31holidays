@@ -10,6 +10,17 @@
   // NAVBAR SCROLL EFFECT
   // ============================================
   const navbar = document.getElementById("mainNav");
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  function handleScrollTopVisibility() {
+    if (scrollTopBtn) {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add("show");
+      } else {
+        scrollTopBtn.classList.remove("show");
+      }
+    }
+  }
 
   function handleNavbarScroll() {
     if (window.scrollY > 100) {
@@ -29,55 +40,27 @@
   anchorLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
-
-      // Skip if it's just "#" or modal trigger
-      if (href === "#" || this.hasAttribute("data-bs-toggle")) {
-        return;
-      }
-
-      const target = document.querySelector(href);
-
-      if (target) {
+      if (href && href.startsWith("#") && href.length > 1) {
         e.preventDefault();
-        const navbarHeight = navbar.offsetHeight;
-        const targetPosition = target.offsetTop - navbarHeight;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
-
-        // Close mobile menu if open
-        const navbarCollapse = document.getElementById("navbarNav");
-        if (navbarCollapse.classList.contains("show")) {
-          const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-            toggle: false,
+        const targetSection = document.querySelector(href);
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 70,
+            behavior: "smooth",
           });
-          bsCollapse.hide();
         }
       }
     });
   });
 
-  // ============================================
-  // SCROLL TO TOP BUTTON
-  // ============================================
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-  function handleScrollTopVisibility() {
-    if (window.scrollY > 300) {
-      scrollTopBtn.classList.remove("hidden");
-    } else {
-      scrollTopBtn.classList.add("hidden");
-    }
-  }
-
-  scrollTopBtn.addEventListener("click", function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
-  });
+  }
 
   window.addEventListener("scroll", handleScrollTopVisibility);
 
@@ -161,26 +144,53 @@
   // ============================================
   // FORM VALIDATION (if contact form exists)
   // ============================================
-  const forms = document.querySelectorAll(".needs-validation");
+  const bookingForms = document.querySelectorAll("#heroForm, #contactForm");
 
-  forms.forEach((form) => {
+  bookingForms.forEach((form) => {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       event.stopPropagation();
 
-      if (form.checkValidity()) {
-        // Fake form submission
-        console.log("Form submitted successfully!");
-
-        // Show success message
-        alert("Thank you for your message! We will get back to you soon.");
-
-        // Reset form
-        form.reset();
-        form.classList.remove("was-validated");
-      } else {
+      if (!form.checkValidity()) {
         form.classList.add("was-validated");
+        return;
       }
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML =
+        '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Send to Google Apps Script
+      const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbyM5d_-xlxwlZu6KE7yhRcxeheqHXj61BHuPQmePPPAq-t9whArczFApUT64YKfcW7aMg/exec"; // USER SHOULD REPLACE THIS
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Crucial for Apps Script
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+          alert("Thank you! Your request has been submitted successfully.");
+          form.reset();
+          form.classList.remove("was-validated");
+        })
+        .catch((error) => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+          console.error("Submission error:", error);
+          alert("Submission failed. Please try again later.");
+        });
     });
   });
 
@@ -246,55 +256,7 @@
   // ============================================
   // ENHANCED FORM VALIDATION
   // ============================================
-  forms.forEach((form) => {
-    const inputs = form.querySelectorAll(".form-control, .form-select");
-
-    inputs.forEach((input) => {
-      input.addEventListener("blur", function () {
-        validateInput(input);
-      });
-
-      input.addEventListener("input", function () {
-        if (input.classList.contains("is-invalid")) {
-          validateInput(input);
-        }
-      });
-    });
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      if (!form.checkValidity()) {
-        form.style.animation = "shake 0.5s ease";
-        setTimeout(() => {
-          form.style.animation = "";
-        }, 500);
-
-        form.classList.add("was-validated");
-        return;
-      }
-
-      // Show loading state
-      const submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        const originalText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                    Processing...
-                `;
-
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-          showNotification("Form submitted successfully!", "success");
-          form.reset();
-          form.classList.remove("was-validated");
-        }, 2000);
-      }
-    });
-  });
+  // Consolidated form handling above
 
   function validateInput(input) {
     const isValid = input.checkValidity();
@@ -526,79 +488,7 @@
   // ============================================
   // CONTACT FORM HANDLING
   // ============================================
-  const contactForm = document.getElementById("contactForm");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (this.checkValidity()) {
-        const formData = {
-          name: document.getElementById("contactName").value,
-          email: document.getElementById("contactEmail").value,
-          mobile: document.getElementById("contactMobile").value,
-          reason: document.getElementById("contactReason").value,
-          message: document.getElementById("contactMessage").value,
-        };
-
-        // Add dynamic fields if they exist
-        const packageSelection = document.getElementById("packageSelection");
-        if (packageSelection) {
-          formData.packageSelection = packageSelection.value;
-        }
-
-        const companyName = document.getElementById("companyName");
-        if (companyName) {
-          formData.companyName = companyName.value;
-        }
-
-        const businessType = document.getElementById("businessType");
-        if (businessType) {
-          formData.businessType = businessType.value;
-        }
-
-        // Tour inquiry specific fields
-        const startLocation = document.getElementById("startLocation");
-        if (startLocation) {
-          formData.startLocation = startLocation.value;
-        }
-
-        const endDestination = document.getElementById("endDestination");
-        if (endDestination) {
-          formData.endDestination = endDestination.value;
-        }
-
-        const startDateInquiry = document.getElementById("startDateInquiry");
-        if (startDateInquiry) {
-          formData.startDate = startDateInquiry.value;
-        }
-
-        const endDateInquiry = document.getElementById("endDateInquiry");
-        if (endDateInquiry) {
-          formData.endDate = endDateInquiry.value;
-        }
-
-        const numberOfPeople = document.getElementById("numberOfPeople");
-        if (numberOfPeople) {
-          formData.numberOfPeople = numberOfPeople.value;
-        }
-
-        // Send to Telegram (placeholder function)
-        sendToTelegram(formData, "Contact Form");
-
-        // Show success message
-        alert("Thank you for contacting us! We will get back to you soon.");
-
-        // Reset form
-        this.reset();
-        this.classList.remove("was-validated");
-        dynamicFields.innerHTML = "";
-      } else {
-        this.classList.add("was-validated");
-      }
-    });
-  }
+  // Handled by bookingForms listener
 
   // ============================================
   // TELEGRAM INTEGRATION (Placeholder)
@@ -680,6 +570,36 @@
         });
         */
   }
+
+  // ============================================
+  // CAROUSEL INITIALIZATION
+  // ============================================
+  const carouselElList = document.querySelectorAll(".carousel");
+  const carouselList = [...carouselElList].map((carouselEl) => {
+    return new bootstrap.Carousel(carouselEl, {
+      interval: 5000,
+      touch: true,
+    });
+  });
+
+  // Manual control check if needed
+  document.querySelectorAll(".custom-nav").forEach((button) => {
+    button.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-bs-target");
+      const slideTo = this.getAttribute("data-bs-slide");
+      const carouselElement = document.querySelector(targetId);
+
+      if (carouselElement) {
+        const carousel =
+          bootstrap.Carousel.getOrCreateInstance(carouselElement);
+        if (slideTo === "prev") {
+          carousel.prev();
+        } else if (slideTo === "next") {
+          carousel.next();
+        }
+      }
+    });
+  });
 
   // ============================================
   // CONSOLE MESSAGE
