@@ -574,17 +574,26 @@
   // ============================================
   // CAROUSEL INITIALIZATION
   // ============================================
-  const carouselElList = document.querySelectorAll(".carousel");
-  const carouselList = [...carouselElList].map((carouselEl) => {
-    return new bootstrap.Carousel(carouselEl, {
-      interval: 5000,
-      touch: true,
-    });
+  // ============================================
+  // CAROUSEL INITIALIZATION
+  // ============================================
+  // Initialize all carousels on the page
+  const carousels = document.querySelectorAll(".carousel");
+  carousels.forEach((carouselEl) => {
+    // Only initialize if not already done by data-bs-ride
+    if (!bootstrap.Carousel.getInstance(carouselEl)) {
+      new bootstrap.Carousel(carouselEl, {
+        interval: 5000,
+        ride: "carousel",
+        touch: true,
+      });
+    }
   });
 
-  // Manual control check if needed
+  // Manual navigation for custom buttons
   document.querySelectorAll(".custom-nav").forEach((button) => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", function (e) {
+      e.preventDefault(); // Stop default Bootstrap behavior to hand it manually
       const targetId = this.getAttribute("data-bs-target");
       const slideTo = this.getAttribute("data-bs-slide");
       const carouselElement = document.querySelector(targetId);
