@@ -167,7 +167,7 @@
 
       // Send to Google Apps Script
       const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbyM5d_-xlxwlZu6KE7yhRcxeheqHXj61BHuPQmePPPAq-t9whArczFApUT64YKfcW7aMg/exec"; // USER SHOULD REPLACE THIS
+        "https://script.google.com/macros/s/AKfycbzh-Juq6psnjmAkvF-njNbFvcM-IulC4vOH9Y9kXztXrPiLEUuM4-RlS9h6XKvHbc4h/exec"; // USER SHOULD REPLACE THIS
 
       fetch(SCRIPT_URL, {
         method: "POST",
