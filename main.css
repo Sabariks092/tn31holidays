@@ -1926,8 +1926,8 @@ a {
 }
 
 .floating-btn {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   background: linear-gradient(135deg,
       var(--color-primary-orange),
       var(--color-temple-gold));

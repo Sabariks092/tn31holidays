@@ -41,6 +41,74 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
+     <div class="d-md-none d-block mx-auto" style="
+position:fixed;
+top:90%;
+left:0;
+z-index:1000;
+width: 100%;
+
+">
+
+    <div class="mx-auto" style="
+display:flex;
+align-items:center;
+gap:14px;
+justify-content: center;
+transform-origin:left top;
+font-size:11px;
+font-weight:500;
+font-family:Inter, sans-serif;
+letter-spacing:1.5px;
+color:white;
+background:linear-gradient(135deg,#FF8E1B,#FF6B00);
+padding:4px 20px;
+border-radius:0 0 15px 15px;
+white-space:nowrap;
+">
+
+      <!-- Phone -->
+      <!-- <div style="
+width:28px;
+height:28px;
+background:rgba(255,255,255,0.2);
+border:2px solid rgba(255,255,255,0.4);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+">
+        <i class="bi bi-telephone" style="color:white;font-size:12px;"></i>
+      </div> -->
+
+      <a href="tel:+919361436662" style="color:white;text-decoration:none;font-weight:600;">
+        +91 9361436662
+      </a>
+
+      <span style="opacity:.6;">|</span>
+
+      <!-- Email -->
+      <!-- <div style="
+width:28px;
+height:28px;
+background:rgba(255,255,255,0.2);
+border:2px solid rgba(255,255,255,0.4);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+">
+        <i class="bi bi-envelope" style="color:white;font-size:12px;"></i>
+      </div> -->
+
+      <a href="mailto:hello@tn31holidays.com" style="color:white;text-decoration:none;font-weight:600;">
+        hello@tn31holidays.com
+      </a>
+
+    </div>
+  </div>
     <div class="container">
       <a class="navbar-brand" href="#home">
         <img src="./assets/img/common/tn31logo.jpg" width="80" style="border-radius: 50%" alt="Tamil Nadu Tourism" />
@@ -50,7 +118,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav gap-2 mx-auto">
+        <ul class="navbar-nav gap-4 mx-auto">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#home">Home</a>
           </li>
@@ -72,7 +140,7 @@
         </ul>
         <div class="navbar-cta">
           <a href="tel:9361436662" class="btn btn-book-tour d-flex gap-2 align-items-center"><i
-              class="bi bi-telephone-fill border px-2 py-1" style="border-radius: 100%;"></i>+91 9361436662</a>
+              class="bi bi-telephone-fill border px-1" style="border-radius: 100%;"></i>+91 9361436662</a>
         </div>
       </div>
     </div>
@@ -265,12 +333,23 @@
                   <div class="mb-3">
                     <select class="form-select" name="packageSelection" required>
                       <option value="">Choose a package...</option>
-                      <option value="temple-tour">Temple Tour Package</option>
-                      <option value="hill-station">Hill Station Escape</option>
-                      <option value="beach-paradise">Beach Paradise</option>
-                      <option value="heritage-circuit">Heritage Circuit</option>
-                      <option value="nilgiri-railway">Nilgiri Mountain Railway</option>
-                      <option value="complete-tour">Complete Tamil Nadu Tour</option>
+
+                      <option value="temple-trail-tamil-nadu">Temple Trail Tamil Nadu</option>
+
+                      <option value="hill-station-retreat">Hill Station Retreat</option>
+
+                      <option value="coastal-paradise">Coastal Paradise</option>
+
+                      <option value="wildlife-explorer">Wildlife Explorer</option>
+
+                      <option value="heritage-culture-trail">Heritage & Culture Trail</option>
+
+                      <option value="family-fun-tamil-nadu">Family Fun Tamil Nadu</option>
+
+                      <option value="weekend-getaway">Weekend Getaway</option>
+
+                      <option value="full-tamil-nadu-circuit">Full Tamil Nadu Circuit</option>
+
                     </select>
                     <div class="invalid-feedback">Please select a package.</div>
                   </div>
@@ -378,20 +457,23 @@
       </div>
 
       <!-- Desktop / Tablet: 4 cards per slide -->
+      <!-- Desktop / Tablet: 4 cards per slide -->
       <div class="d-none d-md-block">
         <div id="packagesCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
+
             <!-- Slide 1 -->
             <div class="carousel-item active">
               <div class="row g-4 justify-content-center">
-                <!-- Pkg 1 -->
+
+                <!-- Package 1 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(1)">
                     <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80"
-                      class="package-image" alt="Temple Trail Tamil Nadu" />
+                      class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Spiritual Journey</div>
@@ -401,14 +483,14 @@
                   </div>
                 </div>
 
-                <!-- Pkg 2 -->
+                <!-- Package 2 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(2)">
                     <img src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800&q=80"
-                      class="package-image" alt="Hill Station Retreat" />
+                      class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Nature Escape</div>
@@ -418,14 +500,14 @@
                   </div>
                 </div>
 
-                <!-- Pkg 3 -->
+                <!-- Package 3 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(3)">
                     <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80"
-                      class="package-image" alt="Coastal Paradise" />
+                      class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Beach Bliss</div>
@@ -435,14 +517,14 @@
                   </div>
                 </div>
 
-                <!-- Pkg 4 -->
+                <!-- Package 4 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(4)">
                     <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&q=80"
-                      class="package-image" alt="Wildlife Explorer" />
+                      class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Adventure Safari</div>
@@ -451,39 +533,38 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
             <!-- Slide 2 -->
             <div class="carousel-item">
               <div class="row g-4 justify-content-center">
-                <!-- Pkg 5 -->
+
+                <!-- Package 5 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(5)">
-                    <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=800&q=80"
-                      class="package-image" alt="Heritage & Culture Trail" />
+                    <img src="./assets/2245.jpg" class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Heritage Walk</div>
-                      <h2 class="package-title">
-                        HERITAGE &amp; CULTURE TRAIL
-                      </h2>
+                      <h2 class="package-title">HERITAGE & CULTURE TRAIL</h2>
                       <div class="price-tag">RS. 10,999 ONLY</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Pkg 6 -->
+                <!-- Package 6 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(6)">
                     <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?w=800&q=80"
-                      class="package-image" alt="Family Fun Tamil Nadu" />
+                      class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Family Special</div>
@@ -493,14 +574,14 @@
                   </div>
                 </div>
 
-                <!-- Pkg 7 -->
+                <!-- Package 7 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(7)">
                     <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=800&q=80"
-                      class="package-image" alt="Weekend Getaway" />
+                      class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Short Break</div>
@@ -510,14 +591,14 @@
                   </div>
                 </div>
 
-                <!-- Pkg 8 -->
+                <!-- Package 8 -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                   <div class="package-card" onclick="openModal(8)">
                     <img src="https://images.unsplash.com/photo-1541417904950-b855846fe074?w=800&q=80"
-                      class="package-image" alt="Full Tamil Nadu Circuit" />
+                      class="package-image">
                     <div class="diagonal-overlay"></div>
                     <div class="logo">
-                      <img src="./assets/img/common/tn31logo.jpg" alt="TN31" />
+                      <img src="./assets/img/common/tn31logo.jpg">
                     </div>
                     <div class="package-content">
                       <div class="package-tag">Grand Tour</div>
@@ -526,8 +607,10 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
+
           </div>
 
           <!-- Controls -->
@@ -540,6 +623,7 @@
             data-bs-slide="next">
             <i class="bi bi-chevron-right"></i>
           </button>
+
         </div>
       </div>
 
@@ -704,12 +788,12 @@
 
           <!-- Controls (mobile) -->
           <button class="carousel-control-prev custom-nav" type="button" data-bs-target="#packagesCarouselMobile"
-            data-bs-slide="prev">
+            onclick="bootstrap.Carousel.getOrCreateInstance(document.querySelector('#packagesCarouselMobile')).prev()">
             <i class="bi bi-chevron-left"></i>
           </button>
 
           <button class="carousel-control-next custom-nav" type="button" data-bs-target="#packagesCarouselMobile"
-            data-bs-slide="next">
+            onclick="bootstrap.Carousel.getOrCreateInstance(document.querySelector('#packagesCarouselMobile')).next()">
             <i class="bi bi-chevron-right"></i>
           </button>
         </div>
@@ -717,69 +801,272 @@
     </div>
 
     <!-- ============== PACKAGE DETAILS MODAL (BOOTSTRAP) ============== -->
-    <div class="modal fade" id="packageModal" tabindex="-1" aria-labelledby="packageModalLabel" aria-hidden="true">
+    <!-- TOUR PACKAGE MODAL -->
+
+    <div class="modal fade" id="packageModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content p-md-5 p-2 package-modal">
-          <div class="modal-header border-0">
-            <div>
-              <span class="badge rounded-pill bg-warning text-dark mb-2" id="packageModalTag"></span>
-              <h5 class="modal-title fw-bold" id="packageModalLabel"></h5>
+        <div class="modal-content package-modal">
+
+          <!-- CLOSE BUTTON -->
+          <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal">X</button>
+
+          <!-- HERO IMAGE -->
+          <div class="modal-hero">
+
+            <img id="packageModalImage" class="modal-hero-img" alt="Tour Image">
+
+            <div class="modal-hero-overlay">
+
+              <span class="badge bg-warning text-dark rounded-pill px-3 py-2" id="packageModalTag"></span>
+
+              <h4 class="fw-bold text-white mt-2 mb-0" id="packageModalLabel"></h4>
+
             </div>
-            <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+
           </div>
 
-          <div class="modal-body">
-            <div class="row">
-              <div>
-                <div class="position-relative">
-                  <div class="modal-img-wrapper">
-                    <img id="packageModalImage" class="w-100 h-100 object-fit-cover rounded-3 shadow-sm" alt="" />
-                  </div>
-                </div>
+
+          <!-- BODY -->
+          <div class="modal-body p-md-5 p-4">
+
+            <div class="row g-4">
+
+              <!-- DESCRIPTION + HIGHLIGHTS -->
+              <div class="col-md-6">
+
+                <p class="text-muted mb-4" id="packageModalDescription"></p>
+
+                <h6 class="fw-semibold mb-3">
+                  Tour Highlights
+                </h6>
+
+                <ul class="modal-highlight-list" id="packageModalHighlights">
+                </ul>
+
               </div>
 
-              <div class="row d-flex justify-content-center">
-                <div class="col-md-6">
-                  <p class="text-muted" id="packageModalDescription"></p>
-                  <h6 class="fw-semibold mb-2">Highlights</h6>
-                  <ul class="list-unstyled" id="packageModalHighlights">
-                    <!-- Filled by JS -->
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <h6 class="fw-semibold my-1 mt-3">Benfits</h6>
 
-                  <ul class="list-unstyled small mt-3" id="packageModalMeta">
-                    <!-- Filled by JS -->
-                  </ul>
+              <!-- BENEFITS -->
+              <div class="col-md-6">
+
+                <h6 class="fw-semibold mb-3">
+                  Package Benefits
+                </h6>
+
+                <div class="row g-3" id="packageModalMeta">
                 </div>
+
               </div>
+
             </div>
+
           </div>
 
-          <div class="modal-footer border-0 d-flex justify-content-between flex-wrap gap-2">
-            <div class="small text-muted">
+
+          <!-- FOOTER -->
+          <div class="modal-footer package-footer">
+
+            <div class="small ">
               <i class="bi bi-info-circle me-1"></i>
-              All packages are customisable on request.
+              All packages are customisable on request
             </div>
-            <div class="d-flex flex-wrap ms-auto justify-content-end gap-2">
-              <span class="price-tag py-3" id="packageModalPrice"></span>
 
-              <a href="https://wa.me/919876543210?text=Hi%20TN-31%20Holidays,%20I%20am%20interested%20in%20one%20of%20your%20packages."
-                target="_blank" class="btn py-3 rounded-5 btn-success">
-                <i class="bi bi-whatsapp me-1"></i> WhatsApp Us
+            <div class="footer-actions">
+
+              <!-- <div class="price-box">
+
+            <span class="price-label">
+              Starting From
+            </span>
+
+            <span class="price-value"
+              id="packageModalPrice">
+            </span>
+
+          </div> -->
+
+
+              <a href="#"
+                onclick="this.href='https://wa.me/919361436662?text=' + encodeURIComponent('Hi TN-31 Holidays, I am interested in one of your packages. share the detils of this package - ' + document.getElementById('packageModalLabel').innerText)"
+                target="_blank" class="btn btn-success rounded-pill px-4 "
+                style="padding-top: 10px; padding-bottom: 10px;">
+
+                <i class="bi bi-whatsapp me-2"></i>
+                WhatsApp
+
               </a>
 
-              <button type="button" class="btn py-3 rounded-5 btn-search-tours"
-                onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
-                data-bs-dismiss="modal">
+
+              <button class="btn btn-book-tour rounded-pill px-4" onclick="
+                  const modalTitle = document.getElementById('packageModalLabel').innerText.toUpperCase();
+                  const selects = document.querySelectorAll('select[name=packageSelection]');
+                  let matchingValue = '';
+                  
+                  if(modalTitle.includes('TEMPLE TRAIL')) matchingValue = 'temple-trail-tamil-nadu';
+                  else if(modalTitle.includes('HILL STATION')) matchingValue = 'hill-station-retreat';
+                  else if(modalTitle.includes('COASTAL PARADISE')) matchingValue = 'coastal-paradise';
+                  else if(modalTitle.includes('WILDLIFE')) matchingValue = 'wildlife-explorer';
+                  else if(modalTitle.includes('HERITAGE')) matchingValue = 'heritage-culture-trail';
+                  else if(modalTitle.includes('FAMILY')) matchingValue = 'family-fun-tamil-nadu';
+                  else if(modalTitle.includes('WEEKEND')) matchingValue = 'weekend-getaway';
+                  else if(modalTitle.includes('FULL TAMIL NADU')) matchingValue = 'full-tamil-nadu-circuit';
+                  
+                  if(matchingValue) {
+                    selects.forEach(select => { select.value = matchingValue; });
+                  }
+                  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+                " data-bs-dismiss="modal">
+
                 Book / Enquire
+
               </button>
+
             </div>
+
           </div>
+
         </div>
       </div>
     </div>
+
+
+
+    <style>
+      /* MODAL CONTAINER */
+
+      .package-modal {
+        border-radius: 20px;
+        border: none;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+
+      /* CLOSE BUTTON */
+
+      .modal-close-btn {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        z-index: 10;
+        background: white;
+        border-radius: 50%;
+        padding: 8px;
+      }
+
+
+      /* HERO SECTION */
+
+      .modal-hero {
+        position: relative;
+        height: 260px;
+        overflow: hidden;
+      }
+
+      .modal-hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+
+      /* OVERLAY */
+
+      .modal-hero-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 30px;
+        background: linear-gradient(transparent,
+            rgba(0, 0, 0, 0.75));
+      }
+
+
+      /* HIGHLIGHTS */
+
+      .modal-highlight-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .modal-highlight-list li {
+
+        margin-bottom: 15px;
+        color: #FFFF;
+      }
+
+      .modal-highlight-list i {
+        color: #22b344;
+      }
+
+
+      /* BENEFIT CARD */
+
+      .benefit-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px;
+        border-radius: 12px;
+        background: #f8f9fa;
+        transition: 0.3s;
+        font-size: 14px;
+      }
+
+      .benefit-card:hover {
+        background: #eef2ff;
+      }
+
+      .benefit-card i {
+        font-size: 18px;
+        color: #0d6efd;
+      }
+
+
+      /* FOOTER */
+
+      .package-footer {
+        border-top: 1px solid #eee;
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+
+      /* FOOTER ACTIONS */
+
+      .footer-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+
+      /* PRICE BOX */
+
+      .price-box {
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+      }
+
+      .price-label {
+        font-size: 12px;
+        color: #888;
+      }
+
+      .price-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #ff6b00;
+      }
+    </style>
   </section>
 
   <!-- Explore World Section -->
@@ -831,7 +1118,7 @@
               Personalized tour plans tailored to your preferences and budget
             </p>
             <div class="mx-auto navbar-cta">
-              <a class="btn text-center btn-book-tour">Book Tour</a>
+              <a class="btn text-center btn-book-tour" href="#contact">Book Tour</a>
             </div>
           </div>
         </div>
@@ -846,7 +1133,7 @@
               Comfortable AC vehicles with experienced drivers for safe travel
             </p>
             <div class="mx-auto navbar-cta">
-              <a class="btn text-center btn-book-tour">Book Tour</a>
+              <a class="btn text-center btn-book-tour" href="#contact">Book Tour</a>
             </div>
           </div>
         </div>
@@ -861,7 +1148,7 @@
               Quality accommodations ranging from budget to luxury stays
             </p>
             <div class="mx-auto navbar-cta">
-              <a class="btn text-center btn-book-tour">Book Tour</a>
+              <a class="btn text-center btn-book-tour" href="#contact">Book Tour</a>
             </div>
           </div>
         </div>
@@ -876,7 +1163,7 @@
               Knowledgeable local guides fluent in multiple languages
             </p>
             <div class="mx-auto navbar-cta">
-              <a class="btn text-center btn-book-tour">Book Tour</a>
+              <a class="btn text-center btn-book-tour" href="#contact">Book Tour</a>
             </div>
           </div>
         </div>
@@ -1257,14 +1544,24 @@
                         <div class="col-md-6 mb-3">
                           <select class="form-select" name="packageSelection" required>
                             <option value="">Choose a package...</option>
-                            <option value="temple-tour">Temple Tour Package</option>
-                            <option value="hill-station">Hill Station Escape</option>
-                            <option value="beach-paradise">Beach Paradise</option>
-                            <option value="heritage-circuit">Heritage Circuit</option>
-                            <option value="nilgiri-railway">Nilgiri Mountain Railway</option>
-                            <option value="complete-tour">Complete Tamil Nadu Tour</option>
+
+                            <option value="temple-trail-tamil-nadu">Temple Trail Tamil Nadu</option>
+
+                            <option value="hill-station-retreat">Hill Station Retreat</option>
+
+                            <option value="coastal-paradise">Coastal Paradise</option>
+
+                            <option value="wildlife-explorer">Wildlife Explorer</option>
+
+                            <option value="heritage-culture-trail">Heritage & Culture Trail</option>
+
+                            <option value="family-fun-tamil-nadu">Family Fun Tamil Nadu</option>
+
+                            <option value="weekend-getaway">Weekend Getaway</option>
+
+                            <option value="full-tamil-nadu-circuit">Full Tamil Nadu Circuit</option>
+
                           </select>
-                          <div class="invalid-feedback">Please select a package.</div>
                         </div>
                         <div class="col-md-6 mb-3">
                           <select class="form-select" name="tourMethod" required>
@@ -1409,17 +1706,87 @@
   <!-- Floating Action Buttons -->
   <div class="floating-buttons">
     <!-- WhatsApp Floating Button (above scroll button) -->
-    <a href="https://wa.me/919876543210?text=Hi%20TN-31%20Holidays,%20I%20would%20like%20to%20plan%20a%20trip."
-      target="_blank" rel="noopener" class="floating-btn floating-whatsapp" style="border-radius: 100%;"
-      aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/919361436662?text=Hi%20TN-31%20Holidays,%20I%20would%20like%20to%20plan%20a%20trip."
+      target="_blank" rel="noopener" class="floating-btn floating-whatsapp"
+      style="border-radius: 100%; width:60px; height: 60px; font-size: 28px;" aria-label="Chat on WhatsApp">
       <i class="bi bi-whatsapp"></i>
     </a>
 
-    <button class="floating-btn d-md-block d-none" style="border-radius: 100%;" aria-label="Scroll to top"
+    <button class="floating-btn d-md-block d-none"
+      style="border-radius: 100%; width:60px; height: 60px; font-size: 20px;" aria-label="Scroll to top"
       id="scrollTopBtn">
-      <i class="bi bi-arrow-up"></i>
+      <i class="bi bi-chevron-up"></i>
     </button>
   </div>
+
+  <!-- Vertical Floating Action Bar (Visible on all screens) -->
+  <div class="d-md-block d-none mx-auto"  style="
+position:fixed;
+top:80%;
+left:0;
+z-index:1100;
+">
+
+    <div style="
+display:flex;
+align-items:center;
+gap:14px;
+transform:rotate(-90deg);
+transform-origin:left top;
+font-size:14px;
+font-weight:500;
+font-family:Inter, sans-serif;
+letter-spacing:1.5px;
+color:white;
+background:linear-gradient(135deg,#FF8E1B,#FF6B00);
+padding:4px 20px;
+border-radius:0 0 15px 15px;
+white-space:nowrap;
+">
+
+      <!-- Phone -->
+      <div style="
+width:28px;
+height:28px;
+background:rgba(255,255,255,0.2);
+border:2px solid rgba(255,255,255,0.4);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+">
+        <i class="bi bi-telephone" style="color:white;font-size:12px;"></i>
+      </div>
+
+      <a href="tel:+919361436662" style="color:white;text-decoration:none;font-weight:600;">
+        +91 9361436662
+      </a>
+
+      <span style="opacity:.6;">|</span>
+
+      <!-- Email -->
+      <div style="
+width:28px;
+height:28px;
+background:rgba(255,255,255,0.2);
+border:2px solid rgba(255,255,255,0.4);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+">
+        <i class="bi bi-envelope" style="color:white;font-size:12px;"></i>
+      </div>
+
+      <a href="mailto:hello@tn31holidays.com" style="color:white;text-decoration:none;font-weight:600;">
+        hello@tn31holidays.com
+      </a>
+
+    </div>
+  </div>
+
 
   <!-- Video Modal -->
   <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">

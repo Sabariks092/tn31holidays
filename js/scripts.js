@@ -590,26 +590,6 @@
     }
   });
 
-  // Manual navigation for custom buttons
-  document.querySelectorAll(".custom-nav").forEach((button) => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault(); // Stop default Bootstrap behavior to hand it manually
-      const targetId = this.getAttribute("data-bs-target");
-      const slideTo = this.getAttribute("data-bs-slide");
-      const carouselElement = document.querySelector(targetId);
-
-      if (carouselElement) {
-        const carousel =
-          bootstrap.Carousel.getOrCreateInstance(carouselElement);
-        if (slideTo === "prev") {
-          carousel.prev();
-        } else if (slideTo === "next") {
-          carousel.next();
-        }
-      }
-    });
-  });
-
   // ============================================
   // CONSOLE MESSAGE
   // ============================================
